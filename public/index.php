@@ -7,14 +7,13 @@ use App\Container\Json;
 use App\Models\Movie;
 
 require __DIR__ . '/../vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::createImmutable('../');
+$dotenv = Dotenv\Dotenv::createImmutable('./');
 $dotenv->load();
 
 $c = new Container();
 
 $c->add_service('db', new Database());
 $c->add_service('json', new Json());
-//var_dump($cursist->getCursists());
 
 $movie = new Movie($c);
 $movie->seed();
